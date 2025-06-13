@@ -28,7 +28,6 @@ export default function App() {
   }, []);
 
   if (!fontsLoaded) {
-    // Show nothing or a spinner while loading fonts
     return <Text>Loading fonts...</Text>;
   }
   return (
