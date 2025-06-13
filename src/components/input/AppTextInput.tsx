@@ -8,7 +8,7 @@ interface AppTextInputProps {
   onChangeText: (text: string) => void;
   placeholder: string;
   secureTextEntry?: boolean;
-  keyboardType?: "default" | "email-address" | "numeric";
+  keyboardType?: "default" | "email-address" | "numeric" | "phone-pad";
   style: TextStyle;
 }
 

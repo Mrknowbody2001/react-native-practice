@@ -16,13 +16,17 @@ import { sharedPaddingHorizontal } from "../../styles/SharedStyles";
 import AppTextInput from "../../components/input/AppTextInput";
 import { s, vs } from "react-native-size-matters";
 import AppText from "../../components/appText/AppText";
-import AppButton from "../../components/buttons/AppButton";
+import AppButton from "../../components/buttons/input/AppButton";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import { Ionicons } from "@expo/vector-icons";
+import BackButton from "../../components/buttons/input/BackButton";
+import { useNavigation } from "@react-navigation/native";
 
 const Signin = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  
+  const navigation = useNavigation<any>();
 
   const onPress = () => {};
 
@@ -36,9 +40,8 @@ const Signin = () => {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-          <TouchableOpacity style={styles.backButton} onPress={onPress}>
-            <Ionicons name="arrow-back" size={24} color="#1C1C1C" />
-          </TouchableOpacity>
+          <BackButton  style={styles.backButton} />
+
           <AppSaveView style={styles.container}>
             <Text style={styles.title}>Signin</Text>
 
@@ -63,11 +66,14 @@ const Signin = () => {
                 style={styles.input}
               />
 
-              <TouchableOpacity style={styles.forgotPassword}>
-                <AppText style={styles.forgotPasswordText}>
-                  Forgot password ?
-                </AppText>
-              </TouchableOpacity>
+<TouchableOpacity
+  onPress={() => navigation.navigate('ResetPassword')}
+  style={styles.forgotPassword}
+>
+  <AppText style={styles.forgotPasswordText}>
+    Forgot password ?
+  </AppText>
+</TouchableOpacity>
 
               <AppButton title="Signin" onPress={() => {}} />
 
@@ -195,7 +201,7 @@ const styles = StyleSheet.create({
     color: "#c3c3c3",
     fontSize: 13,
     fontFamily: "DM Sans",
-    fontWeight: 500,
+    fontWeight: "500",
   },
   bottomContainer: {
     flexDirection: "row",
