@@ -9,6 +9,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import AuthStack from "./src/navigation/auth/AuthStack";
 import ResetPassword from "./src/screens/auth/ResetPassword";
 import "react-native-gesture-handler";
+import OTPVerfication from "./src/screens/auth/OTPVerfication";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
@@ -31,11 +33,14 @@ export default function App() {
     return <Text>Loading fonts...</Text>;
   }
   return (
-    <NavigationContainer>
-      <AppSaveView style={styles.container}>
-        <AuthStack />
-      </AppSaveView>
-    </NavigationContainer>
+   <GestureHandlerRootView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <AppSaveView style={styles.container}>
+          {/* <AuthStack /> */}
+          <OTPVerfication />
+        </AppSaveView>
+      </NavigationContainer>
+    </GestureHandlerRootView>
   );
 }
 

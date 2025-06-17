@@ -32,8 +32,12 @@ export default BackButton;
 
 const styles = StyleSheet.create({
   backbutton: {
-    marginBottom: 15,
+    marginBottom: vs(15),
     width: s(24),
     height: vs(24),
+    // position: "absolute",
+    // top: vs(74),
+    // left: s(21),
+
   },
 });
